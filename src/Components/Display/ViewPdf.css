@@ -1,0 +1,37 @@
+.viewBtnCard {
+  height: 100vh;
+  position: relative;
+}
+.viewBtnCardBody {
+  position: relative;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.card-body {
+  position: absolute;
+}
+.card-title {
+  font-weight: 600;
+}
+.actionbtn {
+  position: relative;
+  bottom: 0 !important;
+}
+.readButton,
+.hardCopyBtn {
+  background-color: #006600;
+  color: #fff;
+}
+.readButton_txt {
+  text-decoration: none !important;
+  color: #fff;
+}
+.readButton_txt:hover {
+  color: #fff;
+}
+.readButton:hover,
+.hardCopyBtn:hover {
+  background-color: #008000;
+  color: #fff;
+}

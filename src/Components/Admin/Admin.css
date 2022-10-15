@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700");
+
+/* Login Page */
+.loginBody {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--green);
+  overflow-y: hidden;
+}
+
+.screen {
+  background: linear-gradient(90deg, var(--green), var(--green));
+  position: relative;
+  height: 600px;
+  width: 360px;
+}
+
+.screen__content {
+  z-index: 1;
+  position: relative;
+  height: 100%;
+}
+
+.screen__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  -webkit-clip-path: inset(0 0 0 0);
+  clip-path: inset(0 0 0 0);
+}
+
+.screen__background__shape {
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+.screen__background__shape1 {
+  height: 520px;
+  width: 520px;
+  background: #fff;
+  top: -50px;
+  right: 120px;
+  border-radius: 0 72px 0 0;
+}
+
+.screen__background__shape2 {
+  height: 220px;
+  width: 220px;
+  background: var(--green);
+  top: -172px;
+  right: 0;
+  border-radius: 32px;
+}
+
+.screen__background__shape3 {
+  height: 540px;
+  width: 190px;
+  background: linear-gradient(270deg, var(--green), var(--green));
+  top: -24px;
+  right: 0;
+  border-radius: 32px;
+}
+
+.screen__background__shape4 {
+  height: 400px;
+  width: 200px;
+  background: var(--green);
+  top: 420px;
+  right: 50px;
+  border-radius: 60px;
+}
+
+.login {
+  width: 320px;
+  padding: 30px;
+  padding-top: 156px;
+}
+
+.login__field {
+  padding: 20px 0px;
+  position: relative;
+}
+
+
+.login__input {
+  border: none;
+  border-bottom: 2px solid #d1d1d4;
+  background: none;
+  padding: 10px;
+  padding-left: 24px;
+  font-weight: 700;
+  width: 75%;
+  transition: 0.2s;
+  width: 280px;
+}
+
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+  outline: none;
+  border-bottom-color: #6a679e;
+}
+
+.login__submit { 
+  background: #fff;
+  font-size: 14px;
+  margin-top: 30px;
+  padding: 12px;
+  border-radius: 26px;
+  border: 1px solid #d4d3e8;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  width: 280px;
+  color: var(--violate);
+  box-shadow: 0px 2px 2px var(--violate);
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  justify-content: center;  
+}
+
+.login__submit:active,
+.login__submit:focus,
+.login__submit:hover {
+  border-color: var(--violate);
+  outline: none;
+}
+
+
+/* Admin Dashboard */
+
+.adminPage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--green);
+  height: 100vh;
+  overflow-y: hidden;
+}
+.adminPageHeader{
+  border-bottom: 1px solid #000;
+}
+.edit__Pages{
+text-decoration: none;
+color: #000;
+border: 2px solid black;
+padding: 10px 20px;
+margin: 10px 0;
+width: 250px;
+text-align: center;
+font-weight: bold;
+}
+.edit__Pages:hover{
+  background-color: var(--lightgreen);
+  color: #fff;
+}
+.admin_logout{
+  width: 250px;
+  height: 45px;
+}

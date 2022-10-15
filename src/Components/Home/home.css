@@ -1,0 +1,65 @@
+.headImg {
+  width: 100%;
+  height: 110px;
+  object-fit: fill;
+}
+.qr-main-section {
+  display: flex !important;
+  justify-content: center !important;
+  margin: 20px 0;
+}
+.scan-button {
+  text-align: center !important;
+  margin-bottom: 30px;
+}
+.loginForm {
+  padding: 0;
+}
+
+.loginInput {
+  border: 1px solid black;
+}
+
+.loginInput:focus {
+  box-shadow: none;
+}
+
+.midImg {
+  width: 100%;
+  height: 100%;
+}
+.disclaimer {
+  text-align: center !important;
+  text-align: justify !important;
+}
+.disclaimerHead {
+  border: 1px solid #000;
+  margin: 0 30%;
+}
+.disclaimerHeader {
+  font-size: 20px;
+  color: #000000;
+  font-weight: bold !important;
+}
+.disclaimer_li {
+  margin: 10px 0 !important;
+}
+.disclaimer_seeMore {
+  border: 1px solid #000;
+  padding: 5px;
+  color: #000000;
+  text-decoration: none;
+}
+.errorMessage {
+  color: #ff0000;
+  text-align: center;
+}
+
+@media only screen and (min-width: 900px) {
+  .loginForm {
+    padding: 0 30% !important;
+  }
+  .headImg {
+    height: 50vh;
+  }
+}

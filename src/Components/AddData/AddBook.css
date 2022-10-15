@@ -1,0 +1,43 @@
+.bookupload {
+  background-color: #f0f5f5;
+  padding: 30px 0;
+}
+.bookInputForm {
+  border: 1px solid #00ff9941 !important;
+  padding: 10px;
+  background-color: #fffaf0;
+}
+.bookImg {
+  width: 300px;
+  height: 200px;
+  object-fit: contain;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.bookImgInput {
+  text-align: center;
+  margin-top: 10px;
+}
+.files {
+  border: 1px solid #c5ffe8d5;
+  padding: 10px;
+  margin: 10px 0;
+}
+.orHr {
+  display: flex;
+  justify-content: center;
+}
+.orHr::before,
+.orHr::after {
+  content: "----------";
+}
+.bookSubmit {
+  background-color: #66ccff;
+  color: #000;
+  width: 100%;
+}
+
+.bookSubmit:hover {
+  background-color: #009933;
+  color: #fff;
+}

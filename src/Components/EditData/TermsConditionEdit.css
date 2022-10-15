@@ -1,0 +1,16 @@
+.fullDescription {
+    height: 250px;
+    /* display: flex !important;
+    flex-direction: column !important; */
+    font-weight: bold;
+    font-size: 22px !important;
+  }
+  .btn_terms_submit{
+    margin-top: 80px !important;
+      width: 1000px;
+      height: 50px;
+  }
+  .back{
+    text-decoration: none;
+    color: #000;
+  }
