@@ -38,7 +38,7 @@ const ViewPdf = () => {
   };
 
   ////getting books data
-  const booksData = "https://server.cardiaccasestudy.net/getBookData";
+  const booksData = "https://server.cardiaclibrary.org/getBookData";
   useEffect(() => {
     axios.get(booksData).then((response) => {
       setBooks(response.data);

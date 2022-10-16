@@ -17,7 +17,7 @@ const TermsConditionEdit = () => {
       description: showDescription,
     };
     // INSERT A ADMIN AT THE DATABASE
-    fetch("https://server.cardiaccasestudy.net/addTermsCondition", {
+    fetch("https://server.cardiaclibrary.org/addTermsCondition", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(termsConditionData),
@@ -38,7 +38,7 @@ const TermsConditionEdit = () => {
         setLoading(true);
 
         const response = await fetch(
-          "https://server.cardiaccasestudy.net/getTermsCondition"
+          "https://server.cardiaclibrary.org/getTermsCondition"
         );
 
         const data = await response.json();
@@ -53,7 +53,7 @@ const TermsConditionEdit = () => {
 
   //delete terms and condition
   const handleTermsConditionRemove = (id) => {
-    fetch(`https://server.cardiaccasestudy.net/termsConditiondelete/${id}`, {
+    fetch(`https://server.cardiaclibrary.org/termsConditiondelete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -26,7 +26,7 @@ const PopupEditBookList = ({ singleBook }) => {
       downloadBookLink: downloadBookLinkRef?.current?.value,
     };
 
-    fetch(`https://server.cardiaccasestudy.net/updateBook/${_id}`, {
+    fetch(`https://server.cardiaclibrary.org/updateBook/${_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -132,14 +132,14 @@ const PopupEditBookList = ({ singleBook }) => {
                   </div>
                   <div className="mb-3">
                     <label htmlFor="Inputisbn" className="form-label">
-                      Source Name:
+                      ISBN:
                     </label>
                     <input
                       required
                       type="text"
                       className="form-control"
                       id="Inputisbn"
-                      placeholder="Source Name"
+                      placeholder="Isbn"
                       ref={isbnRef}
                     />
                   </div>

@@ -25,10 +25,8 @@ const AddBook = () => {
       downloadBookLink: downloadBookLinkRef?.current?.value,
     };
 
-    console.log(bookData);
-
     // INSERT top image ADMIN AT THE DATABASE
-    fetch("https://server.cardiaccasestudy.net/addBookData", {
+    fetch("https://server.cardiaclibrary.org/addBookData", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(bookData),
@@ -116,14 +114,14 @@ const AddBook = () => {
             </div>
             <div className="mb-3">
               <label htmlFor="InputISBN" className="form-label">
-                Source Name
+                ISBN:
               </label>
               <input
                 required
                 type="text"
                 className="form-control"
                 id="InputISBN"
-                // placeholder="Isbn"
+                placeholder="Isbn"
                 ref={isbnRef}
               />
             </div>

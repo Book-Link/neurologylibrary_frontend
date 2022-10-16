@@ -30,7 +30,7 @@ const BookDisplay = () => {
   //ata conditionally search kore value onujay
   const handeSearchSubmit = (e) => {
     e.preventDefault();
-    if (bookCat == "bookName") {
+    if (bookCat === "bookName") {
       const filterResult = books.filter((product) =>
         product?.bookName
           .toLowerCase()
@@ -39,7 +39,7 @@ const BookDisplay = () => {
 
       setFilteredBooks(filterResult);
     }
-    if (bookCat == "authorName") {
+    if (bookCat === "authorName") {
       const filterResult = books.filter((product) =>
         product?.authorName
           .toLowerCase()
@@ -47,7 +47,7 @@ const BookDisplay = () => {
       );
       setFilteredBooks(filterResult);
     }
-    if (bookCat == "isbn") {
+    if (bookCat === "isbn") {
       const filterResult = books.filter((product) =>
         product?.isbn
           ?.toString()
@@ -59,25 +59,27 @@ const BookDisplay = () => {
   };
 
   //getting books data
+
+  const bookBaseData = "https://server.cardiaclibrary.org/getBookData";
+
   useEffect(() => {
-    setLoading(true);
-    axios.get("https://server.cardiaccasestudy.net/getBookData").then((response) => {
+    axios.get(bookBaseData).then((response) => {
       setBooks(response.data);
       setFilteredBooks(response.data);
-      setLoading(false);
     });
   }, []);
 
   //Top banner img reading/getting form server
+
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get("https://server.cardiaccasestudy.net/DisplayBookTopImage")
-      .then((response) => {
-        setTopBannerImg(response.data);
-        setLoading(false);
-      });
-  }, []);
+    if (topBannerImg.length === 0) {
+      axios
+        .get("https://server.cardiaclibrary.org/DisplayBookTopImage")
+        .then((response) => {
+          setTopBannerImg(response.data);
+        });
+    }
+  }, [topBannerImg]);
 
   //this is for download book
   const handleDownload = (download) => {
@@ -86,7 +88,7 @@ const BookDisplay = () => {
 
   return (
     <main className="book_display">
-      {loading && (
+      {filteredBooks?.length === 0 && topBannerImg?.length === 0 && (
         <div className="loader">
           <img src={loader} alt="Loading......" />
         </div>
@@ -99,18 +101,11 @@ const BookDisplay = () => {
             src={tpBanner?.topdisplayBookBanner}
             alt="Neourology Library"
             className="img-fluid bannerImg"
-            placeholderSrc={loader}
+            effect="blur"
             width={"100%"}
             height={"auto"}
           />
         ))}
-      </section>
-
-      <section className="text-center mt-2 mb-2">
-        <h6>Publish Your Case Study:</h6>
-        <span>
-          <a href="mailto: pantonix365@gmail.com">pantonix365@gmail.com</a>
-        </span>
       </section>
       <section className="container-fluid book_display_body my-3">
         <form className="search__filter">
@@ -118,10 +113,9 @@ const BookDisplay = () => {
             <input
               type="text"
               className="searchbar"
-              placeholder="Search title, author name, source name....."
+              placeholder="Search book name, author name, isbn....."
               onChange={handleSearch}
             />
-
             <button
               type="submit"
               className="btn search_btn"
@@ -139,7 +133,7 @@ const BookDisplay = () => {
                 value="bookName"
                 onClick={() => filterbookCat("bookName")}
               />
-              <label htmlFor="book_name">Title</label>
+              <label htmlFor="book_name">Book Name</label>
             </span>
             <span className="radioSearch">
               <input
@@ -159,7 +153,7 @@ const BookDisplay = () => {
                 value="isbn"
                 onClick={() => filterbookCat("isbn")}
               />
-              <label htmlFor="isbn">Source Name</label>
+              <label htmlFor="isbn">ISBN Number</label>
             </span>
           </div>
         </form>
@@ -167,52 +161,34 @@ const BookDisplay = () => {
           <div className="row bookRow">
             {/* card */}
             {filteredBooks?.map((bookData, index) => (
-              <div className="col-12 book_card mb-4" key={bookData?._id}>
-                <div class="card book_card_body">
-                  <div class="row g-0">
-                    <div class="col-3 col-md-6">
-                      <LazyLoadImage
-                        src={bookData?.bookImg}
-                        alt=""
-                        className="bookImage"
-                        placeholderSrc={loader}
-                        width={"100%"}
-                        height={"auto"}
-                      />
-                    </div>
-                    <div class="col-9 col-md-6">
-                      <div className="bookFoot">
-                        {/* <p className="b-name pt-2">{bookData?.bookName}</p> */}
-                        <p className="b-name mb-0">
-                          <b>{bookData?.bookName}</b>
-                        </p>
-                        <p className="b-name">{bookData?.authorName}</p>
-                        <aside className="d-flex actionbtn">
-                          {/* <Link to={`/viewPdf/${bookData?._id}`}>
-                            <button className="viewBtn">View</button>
-                          </Link> */}
-                          <span>
-                            <a
-                              href={bookData.bookLink}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              View
-                            </a>
-                          </span>
-                          /
-                          <button
-                            className="downloadBtn"
-                            onClick={() =>
-                              handleDownload(bookData?.downloadBookLink)
-                            }
-                          >
-                            Download
-                          </button>
-                        </aside>
-                      </div>
-                    </div>
-                  </div>
+              <div
+                className="col-12 col-md-4 book_card mb-4"
+                key={bookData?._id}
+              >
+                <LazyLoadImage
+                  src={bookData?.bookImg}
+                  alt=""
+                  className="bookImage"
+                  effect="blur"
+                  width={"100%"}
+                  height={"auto"}
+                />
+                <span className="b_no">
+                  <p>{index + 1}</p>
+                </span>
+                <div className="bookFoot">
+                  <p className="b-name pt-2">{bookData?.bookName}</p>
+                  <aside className="d-flex justify-content-between actionbtn">
+                    <Link to={`/viewPdf/${bookData?._id}`} className="viewBtn">
+                      <button className="btn">View</button>
+                    </Link>
+                    <button
+                      className="btn downloadBtn"
+                      onClick={() => handleDownload(bookData?.downloadBookLink)}
+                    >
+                      Download
+                    </button>
+                  </aside>
                 </div>
               </div>
             ))}

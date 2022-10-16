@@ -3,13 +3,14 @@ import { Redirect, Route } from "react-router-dom";
 
 const PrivateRoute = ({ children, ...rest }) => {
   //   const isLoggedIn = () => {
-  const token = sessionStorage.getItem("token");
+  const mblDataP = sessionStorage.getItem("mblData");
+  const pcDataP = sessionStorage.getItem("pcData");
   //   };
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        token ? (
+        mblDataP || pcDataP ? (
           children
         ) : (
           <Redirect

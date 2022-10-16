@@ -28,7 +28,7 @@ const TermsCondition = () => {
         setLoading(true);
 
         const response = await fetch(
-          "https://server.cardiaccasestudy.net/getTermsCondition"
+          "https://server.cardiaclibrary.org/getTermsCondition"
         );
 
         const data = await response.json();

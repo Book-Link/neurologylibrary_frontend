@@ -8,6 +8,7 @@ import loader from "../../images/Loading.gif";
 import axios from "axios";
 
 const Home = () => {
+  const [scanResultWebCam, setScanResultWebCam] = useState("");
   const [display, setDisply] = useState(false);
   const [inputData, setInputData] = useState("");
   const [finalInputData, setFinalInputData] = useState("");
@@ -18,19 +19,33 @@ const Home = () => {
   const [disclaimer, setDisclaimer] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const data = "Pantonix";
+  const handleErrorWebCam = (error) => {
+    console.log(error);
+  };
+  const handleScanWebCam = (result) => {
+    if (result) {
+      setScanResultWebCam(result);
+    }
+  };
+
+  const mblDataPass = "http://www.cardiaclibrary.org";
+  const pcDataPass = "Tems";
+
   //for login system
   useEffect(() => {
-    if (finalInputData == data) {
-      sessionStorage.setItem("token", data);
+    if (scanResultWebCam == mblDataPass) {
+      sessionStorage.setItem("mblData", mblDataPass);
+      history.push("/termsCondition");
+    } else if (finalInputData == pcDataPass) {
+      sessionStorage.setItem("pcData", pcDataPass);
       history.push("/termsCondition");
     }
-  }, [finalInputData, history]);
+  }, [finalInputData, history, scanResultWebCam]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setFinalInputData(inputData);
-    if (finalInputData != data) {
+    if (finalInputData != pcDataPass) {
       setErrorMessage(true);
     } else {
       setErrorMessage(false);
@@ -38,49 +53,27 @@ const Home = () => {
   };
 
   useEffect(() => {
-    //Top banner reading/getting form server
-    // if (topImg.length === 0) {
     axios
-      .get("https://server.cardiaccasestudy.net/getFrontPageTopImage")
+      .get("https://server.cardiaclibrary.org/getFrontPageTopImage")
       .then((response) => {
         setTopImg(response.data);
       });
-
-    // const timer = setTimeout(() => {
-    //   window.location.reload();
-    // }, 1000);
-    // return () => clearTimeout(timer);
-    // }
   }, []);
 
   useEffect(() => {
-    //middle banner reading/getting form server
-    // if (midImg.length === 0) {
     axios
-      .get("https://server.cardiaccasestudy.net/getFrontPageMiddleImage")
+      .get("https://server.cardiaclibrary.org/getFrontPageMiddleImage")
       .then((response) => {
         setMidImg(response.data);
       });
-    // const timer = setTimeout(() => {
-    //   window.location.reload();
-    // }, 1000);
-    // return () => clearTimeout(timer);
-    // }
   }, []);
 
   useEffect(() => {
-    //disclaimer reading/getting form server
-    // if (disclaimer.length === 0) {
     axios
-      .get("https://server.cardiaccasestudy.net/getFrontPageDisclaimer")
+      .get("https://server.cardiaclibrary.org/getFrontPageDisclaimer")
       .then((response) => {
         setDisclaimer(response.data);
       });
-    //   const timer = setTimeout(() => {
-    //     window.location.reload();
-    //   }, 1000);
-    //   return () => clearTimeout(timer);
-    // }
   }, []);
 
   return (
@@ -105,9 +98,27 @@ const Home = () => {
           </span>
         ))}
       </div>
-
+      {/* Camera */}
+      <div className="qr-main-section row container-fluid">
+        {display && (
+          <div className="col-md-3">
+            <QrReader
+              delay={300}
+              style={{ width: "100%" }}
+              onError={handleErrorWebCam}
+              onScan={handleScanWebCam}
+            />
+          </div>
+        )}
+      </div>
+      {/* Button */}
+      <div className="scan-button">
+        <button className="btn btn-success" onClick={() => setDisply(!display)}>
+          SCAN YOUR CARD
+        </button>
+      </div>
       {/* Login input */}
-      <form onSubmit={handleSubmit} className="loginForm my-5 mx-4">
+      <form onSubmit={handleSubmit} className="loginForm my-5">
         <div className="input-group">
           <input
             required

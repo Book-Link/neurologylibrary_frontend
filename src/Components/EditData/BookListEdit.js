@@ -24,7 +24,9 @@ const BooklistEdit = () => {
       try {
         setLoading(true);
 
-        const response = await fetch("https://server.cardiaccasestudy.net/getBookData");
+        const response = await fetch(
+          "https://server.cardiaclibrary.org/getBookData"
+        );
 
         const data = await response.json();
         setBooks(data);
@@ -38,7 +40,7 @@ const BooklistEdit = () => {
 
   //delete the book
   const handleBookDelete = (id) => {
-    fetch(`https://server.cardiaccasestudy.net/bookDelete/${id}`, {
+    fetch(`https://server.cardiaclibrary.org/bookDelete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -55,7 +57,7 @@ const BooklistEdit = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        `https://server.cardiaccasestudy.net/singleBook/${singleBookId}`
+        `https://server.cardiaclibrary.org/singleBook/${singleBookId}`
       );
       const data = await response.json();
       setSingleBook(data);
@@ -84,7 +86,6 @@ const BooklistEdit = () => {
       </span>
       <section className="bookList">
         <div className="table-responsive mt-3">
-          {loading && <h3>loading...</h3>}
           <table className="table mt-3">
             <thead className="thead-dark">
               <tr>
