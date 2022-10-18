@@ -18,6 +18,11 @@
   position: relative;
   bottom: 0 !important;
 }
+
+.hardCopyBtn {
+  margin-left: 5px;
+}
+
 .readButton,
 .hardCopyBtn {
   background-color: #006600;

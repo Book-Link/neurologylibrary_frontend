@@ -28,7 +28,7 @@ const Home = () => {
     }
   };
 
-  const mblDataPass = "http://www.cardiaclibrary.org";
+  const mblDataPass = "www.neurologylibrary.org";
   const pcDataPass = "Tems";
 
   //for login system

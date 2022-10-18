@@ -90,7 +90,7 @@ const ViewPdf = () => {
                         data-bs-toggle="modal"
                         data-bs-target="#staticBackdropSoftCopy"
                       >
-                        Hard Copy
+                        Request for the hard copy
                       </button>
                     </span>
                   </div>
