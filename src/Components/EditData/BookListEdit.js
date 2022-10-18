@@ -25,7 +25,7 @@ const BooklistEdit = () => {
         setLoading(true);
 
         const response = await fetch(
-          "https://server.cardiaclibrary.org/getBookData"
+          "https://server.neurologylibrary.org/getBookData"
         );
 
         const data = await response.json();
@@ -40,7 +40,7 @@ const BooklistEdit = () => {
 
   //delete the book
   const handleBookDelete = (id) => {
-    fetch(`https://server.cardiaclibrary.org/bookDelete/${id}`, {
+    fetch(`https://server.neurologylibrary.org/bookDelete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -57,7 +57,7 @@ const BooklistEdit = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        `https://server.cardiaclibrary.org/singleBook/${singleBookId}`
+        `https://server.neurologylibrary.org/singleBook/${singleBookId}`
       );
       const data = await response.json();
       setSingleBook(data);

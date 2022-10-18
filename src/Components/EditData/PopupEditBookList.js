@@ -26,7 +26,7 @@ const PopupEditBookList = ({ singleBook }) => {
       downloadBookLink: downloadBookLinkRef?.current?.value,
     };
 
-    fetch(`https://server.cardiaclibrary.org/updateBook/${_id}`, {
+    fetch(`https://server.neurologylibrary.org/updateBook/${_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

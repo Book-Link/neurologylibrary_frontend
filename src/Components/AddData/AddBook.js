@@ -26,7 +26,7 @@ const AddBook = () => {
     };
 
     // INSERT top image ADMIN AT THE DATABASE
-    fetch("https://server.cardiaclibrary.org/addBookData", {
+    fetch("https://server.neurologylibrary.org/addBookData", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(bookData),

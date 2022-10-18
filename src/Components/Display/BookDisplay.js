@@ -60,7 +60,7 @@ const BookDisplay = () => {
 
   //getting books data
 
-  const bookBaseData = "https://server.cardiaclibrary.org/getBookData";
+  const bookBaseData = "https://server.neurologylibrary.org/getBookData";
 
   useEffect(() => {
     axios.get(bookBaseData).then((response) => {
@@ -74,7 +74,7 @@ const BookDisplay = () => {
   useEffect(() => {
     if (topBannerImg.length === 0) {
       axios
-        .get("https://server.cardiaclibrary.org/DisplayBookTopImage")
+        .get("https://server.neurologylibrary.org/DisplayBookTopImage")
         .then((response) => {
           setTopBannerImg(response.data);
         });

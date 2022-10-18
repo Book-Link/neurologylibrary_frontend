@@ -24,7 +24,7 @@ const FrontPageEdit = () => {
     };
     // INSERT top image ADMIN AT THE DATABASE
 
-    fetch("https://server.cardiaclibrary.org/addFrontPageTopImage", {
+    fetch("https://server.neurologylibrary.org/addFrontPageTopImage", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(frontPageTopBanner),
@@ -47,7 +47,7 @@ const FrontPageEdit = () => {
     };
     // INSERT A middle image AT THE DATABASE
 
-    fetch("https://server.cardiaclibrary.org/addFrontPageMiddleImage", {
+    fetch("https://server.neurologylibrary.org/addFrontPageMiddleImage", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(frontPageMiddleBanner),
@@ -71,7 +71,7 @@ const FrontPageEdit = () => {
 
     // INSERT A disclaimer AT THE DATABASE
 
-    fetch("https://server.cardiaclibrary.org/addFrontPageDisclaimer", {
+    fetch("https://server.neurologylibrary.org/addFrontPageDisclaimer", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(frontPageDisclaimer),
@@ -93,7 +93,7 @@ const FrontPageEdit = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          "https://server.cardiaclibrary.org/getFrontPageTopImage"
+          "https://server.neurologylibrary.org/getFrontPageTopImage"
         );
         const data = await response.json();
         setTopImgData(data);
@@ -111,7 +111,7 @@ const FrontPageEdit = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          "https://server.cardiaclibrary.org/getFrontPageMiddleImage"
+          "https://server.neurologylibrary.org/getFrontPageMiddleImage"
         );
         const data = await response.json();
         setMidImgData(data);
@@ -129,7 +129,7 @@ const FrontPageEdit = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          "https://server.cardiaclibrary.org/getFrontPageDisclaimer"
+          "https://server.neurologylibrary.org/getFrontPageDisclaimer"
         );
         const data = await response.json();
         setDisclaimerData(data);
@@ -147,7 +147,7 @@ const FrontPageEdit = () => {
   const handleTopImageRemove = (id) => {
     // console.log('deleted',id);
 
-    fetch(`https://server.cardiaclibrary.org/topImgdelete/${id}`, {
+    fetch(`https://server.neurologylibrary.org/topImgdelete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -163,7 +163,7 @@ const FrontPageEdit = () => {
   const handlemidImageRemove = (id) => {
     // console.log('deleted',id);
 
-    fetch(`https://server.cardiaclibrary.org/middleImgdelete/${id}`, {
+    fetch(`https://server.neurologylibrary.org/middleImgdelete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -179,7 +179,7 @@ const FrontPageEdit = () => {
   const handleDisclaimerRemove = (id) => {
     // console.log('deleted',id);
 
-    fetch(`https://server.cardiaclibrary.org/disclaimerDelete/${id}`, {
+    fetch(`https://server.neurologylibrary.org/disclaimerDelete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -15,7 +15,7 @@ const BannerEditDisplaybook = () => {
     };
 
     // INSERT top image ADMIN AT THE DATABASE
-    fetch("https://server.cardiaclibrary.org/addDisplayBookTopImage", {
+    fetch("https://server.neurologylibrary.org/addDisplayBookTopImage", {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(displayBookBanner),
@@ -36,7 +36,7 @@ const BannerEditDisplaybook = () => {
       try {
         setLoading(true);
         const response = await fetch(
-          "https://server.cardiaclibrary.org/DisplayBookTopImage"
+          "https://server.neurologylibrary.org/DisplayBookTopImage"
         );
         const data = await response.json();
         setTopBannerImg(data);
@@ -51,7 +51,7 @@ const BannerEditDisplaybook = () => {
   const handleTopImageRemove = (id) => {
     // console.log('deleted',id);
 
-    fetch(`https://server.cardiaclibrary.org/bookDisplayImgdelete/${id}`, {
+    fetch(`https://server.neurologylibrary.org/bookDisplayImgdelete/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -54,7 +54,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("https://server.cardiaclibrary.org/getFrontPageTopImage")
+      .get("https://server.neurologylibrary.org/getFrontPageTopImage")
       .then((response) => {
         setTopImg(response.data);
       });
@@ -62,7 +62,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("https://server.cardiaclibrary.org/getFrontPageMiddleImage")
+      .get("https://server.neurologylibrary.org/getFrontPageMiddleImage")
       .then((response) => {
         setMidImg(response.data);
       });
@@ -70,7 +70,7 @@ const Home = () => {
 
   useEffect(() => {
     axios
-      .get("https://server.cardiaclibrary.org/getFrontPageDisclaimer")
+      .get("https://server.neurologylibrary.org/getFrontPageDisclaimer")
       .then((response) => {
         setDisclaimer(response.data);
       });
