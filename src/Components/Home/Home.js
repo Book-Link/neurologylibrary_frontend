@@ -29,7 +29,7 @@ const Home = () => {
   };
 
   const mblDataPass = "www.neurologylibrary.org";
-  const pcDataPass = "Tems";
+  const pcDataPass = "Dementa";
 
   //for login system
   useEffect(() => {
