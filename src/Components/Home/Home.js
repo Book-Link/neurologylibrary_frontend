@@ -28,7 +28,7 @@ const Home = () => {
     }
   };
 
-  const mblDataPass = "www.neurologylibrary.org";
+  const mblDataPass = "http://www.neurologylibrary.org";
   const pcDataPass = "Dementa";
 
   //for login system
