@@ -14,6 +14,7 @@ import Home from "./Components/Home/Home";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import TermsCondition from "./Components/TermsCondition/TermsCondition";
 import NotFound from "./Components/NotFound/NotFound";
+import BtnSearch from "./Components/Display/BtnSearch";
 
 function App() {
   return (
@@ -61,6 +62,10 @@ function App() {
 
         <PrivateRoute path="/books">
           <BookDisplay />
+        </PrivateRoute>
+
+        <PrivateRoute path="/btnSearch">
+          <BtnSearch />
         </PrivateRoute>
 
         <PrivateRoute path="/viewPdf/:bookId">

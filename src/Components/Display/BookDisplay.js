@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./BookDisplay.css";
 import { saveAs } from "file-saver";
 import loader from "../../images/Loading.gif";
@@ -14,6 +14,15 @@ const BookDisplay = () => {
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [bookCat, setBookCat] = useState("");
   const [topBannerImg, setTopBannerImg] = useState([]);
+  const [bookSubjectName, setBookSubjectName] = useState("");
+  const history = useHistory();
+
+  useEffect(() => {
+    if (bookSubjectName.length) {
+      localStorage.setItem("bookSubject", JSON.stringify(bookSubjectName));
+      history.push("/btnSearch");
+    }
+  }, [bookSubjectName, history]);
 
   //for searching book
   const handleSearch = (e) => {
@@ -157,6 +166,14 @@ const BookDisplay = () => {
             </span>
           </div>
         </form>
+
+        <button onClick={() => setBookSubjectName("neuropathic_pain")}>
+          Neuropathic Pain
+        </button>
+        <button onClick={() => setBookSubjectName("migraines_epilepsy")}>
+          Migraines & Epilepsy
+        </button>
+
         <div className="book_display_main my-3">
           <div className="row bookRow">
             {/* card */}

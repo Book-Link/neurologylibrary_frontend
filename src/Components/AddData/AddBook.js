@@ -8,6 +8,7 @@ const AddBook = () => {
   const bookImgRef = useRef();
   const bookNameRef = useRef();
   const authorNameRef = useRef();
+  const bookSubjectRef = useRef();
   const isbnRef = useRef();
   const bookNumberRef = useRef();
   const bookLinkRef = useRef();
@@ -19,6 +20,7 @@ const AddBook = () => {
       bookImg: bookImgRef?.current?.value,
       bookName: bookNameRef?.current?.value,
       authorName: authorNameRef?.current?.value,
+      bookSubject: bookSubjectRef?.current?.value,
       isbn: isbnRef?.current?.value,
       bookNumber: bookNumberRef?.current?.value,
       bookLink: bookLinkRef?.current?.value,
@@ -38,6 +40,7 @@ const AddBook = () => {
           bookImgRef.current.value = "";
           bookNameRef.current.value = "";
           authorNameRef.current.value = "";
+          bookSubjectRef.current.value = "";
           isbnRef.current.value = "";
           bookNumberRef.current.value = "";
           bookLinkRef.current.value = "";
@@ -112,6 +115,25 @@ const AddBook = () => {
                 ref={authorNameRef}
               />
             </div>
+
+            <div className="mb-3">
+              <label htmlFor="InputSubjectName" className="form-label">
+                Book Subject:
+              </label>
+
+              <select
+                className="input-group form-select"
+                id="InputSubjectName"
+                placeholder="Book Subject"
+                ref={bookSubjectRef}
+                required
+              >
+                <option value="">Choose</option>
+                <option value="neuropathic_pain">Neuropathic Pain</option>
+                <option value="migraines_epilepsy">Migraines & Epilepsy</option>
+              </select>
+            </div>
+
             <div className="mb-3">
               <label htmlFor="InputISBN" className="form-label">
                 ISBN:
