@@ -12,15 +12,17 @@ const BookDisplay = () => {
   const [filteredBooks, setFilteredBooks] = useState([]);
 
   //geting data form local stroage
-  const bookSubjectNameData = localStorage.getItem("bookSubject");
+  let bookSubjectNameData = localStorage.getItem("bookSubject");
 
   //getting books data
-  const bookBaseData = "https://server.neurologylibrary.org/getBookData";
   useEffect(() => {
-    axios.get(bookBaseData).then((response) => {
-      setFilteredBooks(response.data);
-    });
+    axios
+      .get("https://server.neurologylibrary.org/getBookData")
+      .then((response) => {
+        setFilteredBooks(response.data);
+      });
   }, []);
+
   //for spacefic books
   const newfilteredBooks = filteredBooks.filter(
     (product) => product?.bookSubject == bookSubjectNameData

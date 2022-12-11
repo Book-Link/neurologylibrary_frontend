@@ -17,12 +17,12 @@ const BookDisplay = () => {
   const [bookSubjectName, setBookSubjectName] = useState("");
   const history = useHistory();
 
-  useEffect(() => {
-    if (bookSubjectName.length) {
-      localStorage.setItem("bookSubject", JSON.stringify(bookSubjectName));
-      history.push("/btnSearch");
-    }
-  }, [bookSubjectName, history]);
+  // useEffect(() => {
+  //   if (bookSubjectName.length) {
+  //     localStorage.setItem("bookSubject", JSON.stringify(bookSubjectName));
+  //     history.push("/btnSearch");
+  //   }
+  // }, [bookSubjectName, history]);
 
   //for searching book
   const handleSearch = (e) => {
@@ -62,6 +62,24 @@ const BookDisplay = () => {
           ?.toString()
           .toLowerCase()
           .includes(search.toString().toLowerCase())
+      );
+      setFilteredBooks(filterResult);
+    }
+    if (bookCat === "neuropathic_pain") {
+      const filterResult = books.filter((product) =>
+        product?.bookSubject
+          ?.toString()
+          .toLowerCase()
+          .includes("neuropathic_pain".toString().toLowerCase())
+      );
+      setFilteredBooks(filterResult);
+    }
+    if (bookCat === "migraines_epilepsy") {
+      const filterResult = books.filter((product) =>
+        product?.bookSubject
+          ?.toString()
+          .toLowerCase()
+          .includes("migraines_epilepsy".toString().toLowerCase())
       );
       setFilteredBooks(filterResult);
     }
@@ -167,10 +185,10 @@ const BookDisplay = () => {
           </div>
         </form>
 
-        <button onClick={() => setBookSubjectName("neuropathic_pain")}>
+        <button onClick={() => filterbookCat("neuropathic_pain")}>
           Neuropathic Pain
         </button>
-        <button onClick={() => setBookSubjectName("migraines_epilepsy")}>
+        <button onClick={() => filterbookCat("migraines_epilepsy")}>
           Migraines & Epilepsy
         </button>
 
