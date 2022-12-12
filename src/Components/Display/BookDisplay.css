@@ -40,7 +40,8 @@
 
 .btn_search_main_click {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 20px;
 }
 .btn_search_click {
   padding: 8px;
