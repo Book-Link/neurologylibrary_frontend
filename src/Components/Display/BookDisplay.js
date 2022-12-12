@@ -14,15 +14,6 @@ const BookDisplay = () => {
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [bookCat, setBookCat] = useState("");
   const [topBannerImg, setTopBannerImg] = useState([]);
-  const [bookSubjectName, setBookSubjectName] = useState("");
-  const history = useHistory();
-
-  // useEffect(() => {
-  //   if (bookSubjectName.length) {
-  //     localStorage.setItem("bookSubject", JSON.stringify(bookSubjectName));
-  //     history.push("/btnSearch");
-  //   }
-  // }, [bookSubjectName, history]);
 
   //for searching book
   const handleSearch = (e) => {
@@ -34,6 +25,14 @@ const BookDisplay = () => {
   //gatting the radio button value and set inte state
   const filterbookCat = (bookType) => {
     setBookCat(bookType);
+  };
+
+  //gatting the button value for search and filter it by its subject name
+  const buttonFilterBookCat = (btnBookType) => {
+    const filterResult = books.filter((product) => {
+      return product?.bookSubject === btnBookType;
+    });
+    setFilteredBooks(filterResult);
   };
 
   //ata conditionally search kore value onujay
@@ -65,28 +64,9 @@ const BookDisplay = () => {
       );
       setFilteredBooks(filterResult);
     }
-    if (bookCat === "neuropathic_pain") {
-      const filterResult = books.filter((product) =>
-        product?.bookSubject
-          ?.toString()
-          .toLowerCase()
-          .includes("neuropathic_pain".toString().toLowerCase())
-      );
-      setFilteredBooks(filterResult);
-    }
-    if (bookCat === "migraines_epilepsy") {
-      const filterResult = books.filter((product) =>
-        product?.bookSubject
-          ?.toString()
-          .toLowerCase()
-          .includes("migraines_epilepsy".toString().toLowerCase())
-      );
-      setFilteredBooks(filterResult);
-    }
   };
 
   //getting books data
-
   const bookBaseData = "https://server.neurologylibrary.org/getBookData";
 
   useEffect(() => {
@@ -97,7 +77,6 @@ const BookDisplay = () => {
   }, []);
 
   //Top banner img reading/getting form server
-
   useEffect(() => {
     if (topBannerImg.length === 0) {
       axios
@@ -185,12 +164,32 @@ const BookDisplay = () => {
           </div>
         </form>
 
-        <button onClick={() => filterbookCat("neuropathic_pain")}>
-          Neuropathic Pain
-        </button>
-        <button onClick={() => filterbookCat("migraines_epilepsy")}>
-          Migraines & Epilepsy
-        </button>
+        <div>
+          <button
+            className="btn_search_btn"
+            onClick={() => {
+              buttonFilterBookCat("neuropathic_pain");
+            }}
+          >
+            Neuropathic Pain
+          </button>
+
+          <button
+            className="btn_search_btn"
+            onClick={() => setFilteredBooks(books)}
+          >
+            All Books
+          </button>
+
+          <button
+            className="btn_search_btn"
+            onClick={() => {
+              buttonFilterBookCat("migraines_epilepsy");
+            }}
+          >
+            Migraines & Epilepsy
+          </button>
+        </div>
 
         <div className="book_display_main my-3">
           <div className="row bookRow">
