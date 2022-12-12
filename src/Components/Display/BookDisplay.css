@@ -37,6 +37,23 @@
   font-weight: bold;
   margin-left: 5px;
 }
+
+.btn_search_main_click {
+  display: flex;
+  justify-content: space-around;
+}
+.btn_search_click {
+  padding: 8px;
+  background-color: #dc143c;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+}
+.btn_search_click:hover {
+  background-color: #ff0000;
+  color: #fff;
+}
+
 .bookRow {
   padding: 0 10px;
   display: flex;

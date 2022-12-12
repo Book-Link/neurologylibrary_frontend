@@ -164,9 +164,9 @@ const BookDisplay = () => {
           </div>
         </form>
 
-        <div>
+        <div className="btn_search_main_click">
           <button
-            className="btn_search_btn"
+            className="btn_search_click"
             onClick={() => {
               buttonFilterBookCat("neuropathic_pain");
             }}
@@ -175,14 +175,14 @@ const BookDisplay = () => {
           </button>
 
           <button
-            className="btn_search_btn"
+            className="btn_search_click"
             onClick={() => setFilteredBooks(books)}
           >
             All Books
           </button>
 
           <button
-            className="btn_search_btn"
+            className="btn_search_click"
             onClick={() => {
               buttonFilterBookCat("migraines_epilepsy");
             }}
