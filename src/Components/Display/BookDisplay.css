@@ -55,13 +55,13 @@
   color: #fff;
 }
 
+
+
 .bookRow {
-  padding: 0 10px;
   display: flex;
 }
 .book_card {
   position: relative;
-  padding-left: 0;
 }
 .b_no {
   position: absolute;
@@ -69,7 +69,7 @@
   height: 0;
   border-top: 80px solid red;
   border-right: 80px solid transparent;
-  left: 0;
+  left: 12px;
   top: 0;
 }
 .b_no p {
@@ -114,6 +114,8 @@
   background-color: #339933;
   color: #fff;
 }
+
+
 
 @media only screen and (max-width: 900px) {
   .searchbar {

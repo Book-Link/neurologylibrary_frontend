@@ -131,6 +131,7 @@ const AddBook = () => {
                 <option value="">Choose</option>
                 <option value="neuropathic_pain">Neuropathic Pain</option>
                 <option value="migraines_epilepsy">Migraines & Epilepsy</option>
+                <option value="journal">Journal</option>
               </select>
             </div>
 

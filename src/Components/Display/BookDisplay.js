@@ -176,10 +176,12 @@ const BookDisplay = () => {
 
           <button
             className="btn_search_click"
-            onClick={() => setFilteredBooks(books)}
+            onClick={() => {
+              buttonFilterBookCat("journal");
+            }}
           >
-            All Books
-          </button>
+            Journal
+          </button>         
 
           <button
             className="btn_search_click"
@@ -189,6 +191,13 @@ const BookDisplay = () => {
           >
             Migraines & Epilepsy
           </button>
+
+          {/* <button
+            className="btn_search_click"
+            onClick={() => setFilteredBooks(books)}
+          >
+            All Books
+          </button> */}
         </div>
 
         <div className="book_display_main my-3">
@@ -205,7 +214,6 @@ const BookDisplay = () => {
                   className="bookImage"
                   effect="blur"
                   width={"100%"}
-                  height={"auto"}
                 />
                 <span className="b_no">
                   <p>{index + 1}</p>
