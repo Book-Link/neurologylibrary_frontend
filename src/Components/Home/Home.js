@@ -29,7 +29,7 @@ const Home = () => {
   };
 
   const mblDataPass = "www.neurologylibrary.org";
-  const pcDataPass = "Dementa";
+  const pcDataPass = "12345";
 
   //for login system
   useEffect(() => {
@@ -126,7 +126,7 @@ const Home = () => {
             required
             type="text"
             className="form-control loginInput"
-            placeholder="Enter Your Password"
+            placeholder="12345"
             aria-label="Recipient's username"
             aria-describedby="button-addon2"
             onChange={(e) => setInputData(e.target.value)}
